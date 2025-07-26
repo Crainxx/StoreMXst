@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaMox Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 text-black"></body>
+
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 shadow">
+    <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-3xl text-purple-300 text-stroke text-center font-bold">MaMox Store</h1>
+      <nav class="space-x-4">
+        <a href="login.html" class="bg-gey-900 text-red-500 hover:underline">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Title -->
+  <section class="text-center py-10 px-4">
+    <h2 class="text-white text-3xl font-bold mb-4">Produk Kami</h2>
+    <p class="text-white hover:underline">Lihat berbagai produk menarik yang bisa kamu beli!</p>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-16 max-w-screen-xl mx-auto">
+    <!-- Product Card -->
+    <div class="bg-white rounded-xl p-4 shadow-md mb-6">
+        <img src="https://cdn.discordapp.com/attachments/1378580898823274528/1398581682524782763/20250621_040322.jpg?ex=6885e231&is=688490b1&hm=f76e4b57b145f3a19caad4241946bca165e06e53dfa06c10b6030c95ca021683&"
+  <div class="p-4">
+        <h3 class="text-lg font-bold mb-1">Suntik Followers TikTok</h3>
+  <p class="text-gray-600">Cocok untuk fashion sehari-hari kamu!</p>
+  <p class="text-purple-600 font-semibold mb-2">Rp 5.000 - 100.000</p>
+
+  <!-- Input Link IG -->
+    <label for="linktt" class="text-sm font-medium">Link TikTok:</label>
+    <input type="url" id="linktt" placeholder="https://www.tiktok.com/@namakamu" class="w-full p-2 border rounded mb-3" />
+
+    <!-- Input Jumlah -->
+    <label for="qtyTopi" class="text-sm font-medium">Jumlah Followers:</label>
+    <input type="number" id="qtyTopi" value="100" min="1" class="w-full p-2 border rounded mb-2" />
+
+    <!-- Total -->
+    <p>Total Harga: <span id="totalTopi" class="text-purple-600 font-semibold">Rp 5.000</span></p>
+
+    <!-- Tombol Beli -->
+    <button onclick="beliTopi()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded mt-2 w-full">
+      Beli
+    </button>
+  </div>
+</div>
+
+<script>
+  const hargaTopi = 60;
+  const qtyTopi = document.getElementById("qtyTopi");
+  const totalTopi = document.getElementById("totalTopi");
+
+  qtyTopi.addEventListener("input", () => {
+    let jumlah = parseInt(qtyTopi.value) || 0;
+
+    if (jumlah > 2000) {
+      alert("Maksimal pembelian adalah Rp 100.000 / 2.000 Followers.");
+      qtyTopi.value = 2000;
+      jumlah = 2000;
+    }
+
+    const total = jumlah * hargaTopi;
+    totalTopi.textContent = `Rp ${new Intl.NumberFormat("id-ID").format(total)}`;
+  });
+
+  function beliTopi() {
+    const jumlah = parseInt(qtyTopi.value) || 0;
+    const total = jumlah * hargaTopi;
+    const linktt = document.getElementById("linktt").value.trim();
+
+    if (!linkig || !linktt.startsWith("http")) {
+      alert("Mohon masukkan link TikTok yang valid.");
+      return;
+    }
+
+    if (jumlah > 2000) {
+      alert("Maksimal pembelian Followers adalah Rp 100.000 /2.000.");
+      return;
+    }
+
+    if (total < 5000) {
+      alert("Minimal pembelian adalah Rp 5.000 / 100 Followers.");
+      return;
+    }
+
+    const subject = encodeURIComponent("Pesanan Followers TikTok");
+    const body = encodeURIComponent(
+      `Saya ingin membeli ${jumlah} Followers TikTok.\n` +
+      `Total Harga: Rp ${new Intl.NumberFormat("id-ID").format(total)}\n` +
+      `Link TikTok: ${linktt}`
+    );
+
+    window.location.href = `mailto:help.mamoxst@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+
+    <!-- Produk Lainnya -->
+    <div class="bg-white rounded-xl p-4 shadow-md mb-6">
+  <img src="https://cdn.discordapp.com/attachments/1378580898823274528/1398676572403400784/20250726_213908.jpg?ex=68863a91&is=6884e911&hm=5646e5c610c65af1a7b0b94eca9ec952b38c4569a85726dca3c922a019f75950&" class="w-full rounded mb-4" />
+
+  <div class="p-4">
+    <h3 class="text-lg font-bold mb-1">Suntik Followers Instagram</h3>
+    <p class="text-gray-600 mb-1">
+      Cocok untuk Yang Mau Jadi Seleb Instagram.<br />
+      Minimal Pembelian Rp 6.000 / 100 Followers.<br />
+    </p>
+    <p class="text-purple-600 font-semibold mb-2">Rp 6.000 - 120.000</p>
+
+    <!-- Input Link IG -->
+    <label for="linkig" class="text-sm font-medium">Link Instagram:</label>
+    <input type="url" id="linkig" placeholder="https://instagram.com/namakamu" class="w-full p-2 border rounded mb-3" />
+
+    <!-- Input Jumlah -->
+    <label for="qtysepatu" class="text-sm font-medium">Jumlah Followers:</label>
+    <input type="number" id="qtysepatu" value="100" min="1" class="w-full p-2 border rounded mb-2" />
+
+    <!-- Total -->
+    <p>Total Harga: <span id="totalsepatu" class="text-purple-600 font-semibold">Rp 6.000</span></p>
+
+    <!-- Tombol Beli -->
+    <button onclick="belisepatu()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded mt-2 w-full">
+      Beli
+    </button>
+  </div>
+</div>
+
+<script>
+  const hargasepatu = 60;
+  const qtysepatu = document.getElementById("qtysepatu");
+  const totalsepatu = document.getElementById("totalsepatu");
+
+  qtysepatu.addEventListener("input", () => {
+    let jumlah = parseInt(qtysepatu.value) || 0;
+
+    if (jumlah > 2000) {
+      alert("Maksimal pembelian adalah Rp 120.000 / 2.000 Followers.");
+      qtysepatu.value = 2000;
+      jumlah = 2000;
+    }
+
+    const total = jumlah * hargasepatu;
+    totalsepatu.textContent = `Rp ${new Intl.NumberFormat("id-ID").format(total)}`;
+  });
+
+  function belisepatu() {
+    const jumlah = parseInt(qtysepatu.value) || 0;
+    const total = jumlah * hargasepatu;
+    const linkig = document.getElementById("linkig").value.trim();
+
+    if (!linkig || !linkig.startsWith("http")) {
+      alert("Mohon masukkan link Instagram yang valid.");
+      return;
+    }
+
+    if (jumlah > 2000) {
+      alert("Maksimal pembelian Followers adalah Rp 120.000 /2.000.");
+      return;
+    }
+
+    if (total < 6000) {
+      alert("Minimal pembelian adalah Rp 6.000 / 100 Followers.");
+      return;
+    }
+
+    const subject = encodeURIComponent("Pesanan Followers Instagram");
+    const body = encodeURIComponent(
+      `Saya ingin membeli ${jumlah} Followers Instagram.\n` +
+      `Total Harga: Rp ${new Intl.NumberFormat("id-ID").format(total)}\n` +
+      `Link Instagram: ${linkig}`
+    );
+
+    window.location.href = `mailto:help.mamoxst@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+
+    <!-- Tambahkan lebih banyak produk -->
+    <div class="bg-white rounded-xl p-4 shadow-md mb-6">
+        <img src="https://cdn.discordapp.com/attachments/1378580898823274528/1398680247779594371/20250726_215543.jpg?ex=68863dfd&is=6884ec7d&hm=e188b2c48ea379177d63da4ace0b48778b1ae52401a4891adf516c147d59b1c7&"
+  <div class="p-4">
+        <h3 class="text-lg font-bold mb-1">Suntik Likes Instagram</h3>
+  <p class="text-gray-600">Cocok untuk Yang Mau Jadi Seleb Instagram & Minimal Pembelian Itu Rp 500 / 100 Likes.</p>
+  <p class="text-purple-600 font-semibold mb-2">Rp 500 - 500.000</p>
+
+  <!-- Input Link IG -->
+    <label for="linkig" class="text-sm font-medium">Link Instagram:</label>
+    <input type="url" id="linkig" placeholder="https://instagram.com/namakamu" class="w-full p-2 border rounded mb-3" />
+
+    <!-- Input Jumlah -->
+    <label for="qtykaos" class="text-sm font-medium">Jumlah Likes:</label>
+    <input type="number" id="qtykaos" value="100" min="1" class="w-full p-2 border rounded mb-2" />
+
+    <!-- Total -->
+    <p>Total Harga: <span id="totalkaos" class="text-purple-600 font-semibold">Rp 500</span></p>
+
+    <!-- Tombol Beli -->
+    <button onclick="belikaos()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded mt-2 w-full">
+      Beli
+    </button>
+  </div>
+</div>
+
+<script>
+  const hargakaos = 5;
+  const qtykaos = document.getElementById("qtykaos");
+  const totalkaos = document.getElementById("totalkaos");
+
+  qtykaos.addEventListener("input", () => {
+    let jumlah = parseInt(qtykaos.value) || 0;
+
+    if (jumlah > 100000) {
+      alert("Maksimal pembelian adalah Rp 500.000 / 100.000 Likes.");
+      qtykaos.value = 100000;
+      jumlah = 100000;
+    }
+
+    const total = jumlah * hargakaos;
+    totalkaos.textContent = `Rp ${new Intl.NumberFormat("id-ID").format(total)}`;
+  });
+
+  function belikaos() {
+    const jumlah = parseInt(qtykaos.value) || 0;
+    const total = jumlah * hargakaos;
+    const linkig = document.getElementById("linkig").value.trim();
+
+    if (!linkig || !linkig.startsWith("http")) {
+      alert("Mohon masukkan link Instagram yang valid.");
+      return;
+    }
+
+    if (jumlah > 100000) {
+      alert("Maksimal pembelian Likes adalah Rp 120.000 /2.000.");
+      return;
+    }
+
+    if (total < 100) {
+      alert("Minimal pembelian adalah Rp 500 / 100 Likes.");
+      return;
+    }
+
+    const subject = encodeURIComponent("Pesanan Followers Instagram");
+    const body = encodeURIComponent(
+      `Saya ingin membeli ${jumlah} Likes Instagram.\n` +
+      `Total Harga: Rp ${new Intl.NumberFormat("id-ID").format(total)}\n` +
+      `Link Instagram: ${linkig}`
+    );
+
+    window.location.href = `mailto:help.mamoxst@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+    </div>
+  </section>
+
+</body>
+</html>
